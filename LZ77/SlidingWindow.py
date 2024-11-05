@@ -12,7 +12,7 @@ class SlidingWindow():
         #   SB               LB
         #   ^                     ^
         # start                  EOB
-        end_of_buffer = min(position + self.look_ahead_buffer_size, len(data)) # end for Look ahead buff
+        end_of_buffer = len(data) - 1 # end for Look ahead buff
         offset = 0 # initialize offset
         length = 0  # initialize length
             # if the position is beyond search buffer, limit it to our s.buffer window size

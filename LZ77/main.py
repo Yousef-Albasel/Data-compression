@@ -1,6 +1,6 @@
 from LZ77Compressor import *
 
-compressor = LZ77Compressor(window_size=22, look_ahead_buffer_size=11)
+compressor = LZ77Compressor(window_size=22, look_ahead_buffer_size=5)
 
 data = "Yousef Albasel"
 print ("Original Data:", data)
@@ -11,7 +11,7 @@ decompressed_data = compressor.decompress(tokens)
 print("Decompressed data:", decompressed_data)
 
 
-data = "ABAABABAABBBBBBBBBBBBA"
+data = "ABCABABC"
 print ("Original Data:", data)
 tokens = compressor.compress(data)
 print("Compressed tokens:", [(t.offset, t.length, t.next_symbol) for t in tokens])

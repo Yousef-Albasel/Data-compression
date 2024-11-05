@@ -13,7 +13,7 @@ class LZ77Compressor():
     def __init__(self, window_size: int = 10, look_ahead_buffer_size: int = 5):
     
         # Setting up sliding window config
-        self.search_buffer_size = window_size - look_ahead_buffer_size # 
+        self.search_buffer_size = window_size - look_ahead_buffer_size # Where we will search for the patterns already encoded
         self.look_ahead_buffer_size = look_ahead_buffer_size
         self.window = SlidingWindow(self.search_buffer_size, self.look_ahead_buffer_size)
 
@@ -48,7 +48,6 @@ class LZ77Compressor():
                 for i in range(token.length):
                     decompressed_data.append(decompressed_data[start + i])
             
-            # Append the next symbol after the copied substring
             decompressed_data.append(token.next_symbol)
 
         return ''.join(decompressed_data)
